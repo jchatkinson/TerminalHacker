@@ -1,13 +1,37 @@
-/**
- * Created by Jeremy on 10/24/2015.
- */
-import {Component,bootstrap} from 'angular2/angular2'; /*need to import exactly what we need, no more global namespace*/
+/*Created by Jeremy on 10/24/2015.*/
+import {bootstrap,Component,View,CORE_DIRECTIVES} from 'angular2/angular2';
+import {WordService} from "./wordService";
+import {GuessService} from "./guessService";
+import {AttemptsRemaining} from "./attemptsRemaining";
+import {GuessList} from "./guessList";
 
-/* The @ symbol before the method name identifies Component as a decoration. A "decoration" is a TypeScript language feature for creating metadata about the class. Angular finds this metadata in the transpiled JavaScript and responds appropriately.*/
 @Component({
-    selector: 'my-app', /* The selector specifies a CSS selector for a host HTML element named my-app. Angular creates and displays an instance of our AppComponent wherever it encounters a my-app element.*/
-    template: '<h1>Hello World</h1>' /* The template field is the component's companion template that tells Angular how to render a view. Our template is a single line of HTML announcing "My First Angular App". */
+    selector: 'my-app'
 })
-class AppComponent { }
+@View({
+    directives: [CORE_DIRECTIVES,AttemptsRemaining,GuessList],
+    template: `<div>
+                    <h1>ROBOCO INDUSTRIES (TM) TERMILINK PROTOCOL</h1>
+                    <h4>!!! WARNING: LOCKOUT IMMINENT !!!</h4>
+                    <attempts-remaining></attempts-remaining>
+                    <div>
+                        <hash-codes></hash-codes>
+                        <selectable-text></selectable-text>
+                        <hash-codes></hash-codes>
+                        <selectable-text></selectable-text>
+                        <guess-list></guess-list>
+                        <current-selection></current-selection>
+                    </div>
+                    <power-button></power-button>
+                </div>`
+})
 
-bootstrap(AppComponent); /*  tells Angular to start the application with this component at the application root. We'd be correct to guess that someday our application will consist of more components arising in tree-like fashion from this root. */
+class AppComponent {
+    constructor(
+        public wordService:WordService
+    ){
+        console.log(wordService);
+    }
+}
+
+bootstrap(AppComponent,[WordService,GuessService]);
