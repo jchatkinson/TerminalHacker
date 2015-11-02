@@ -9,22 +9,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/**
- * Created by Jeremy on 10/24/2015.
- */
-var angular2_1 = require('angular2/angular2'); /*need to import exactly what we need, no more global namespace*/
-/* The @ symbol before the method name identifies Component as a decoration. A "decoration" is a TypeScript language feature for creating metadata about the class. Angular finds this metadata in the transpiled JavaScript and responds appropriately.*/
+/*Created by Jeremy on 10/24/2015.*/
+var angular2_1 = require('angular2/angular2');
+var wordService_1 = require("./wordService");
+var guessService_1 = require("./guessService");
+var attemptsRemaining_1 = require("./attemptsRemaining");
+var guessList_1 = require("./guessList");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(wordService) {
+        this.wordService = wordService;
+        console.log(wordService);
     }
     AppComponent = __decorate([
-        /*need to import exactly what we need, no more global namespace*/ angular2_1.Component({
-            selector: 'my-app',
-            template: '<h1>Hello World</h1>' /* The template field is the component's companion template that tells Angular how to render a view. Our template is a single line of HTML announcing "My First Angular App". */
+        angular2_1.Component({
+            selector: 'my-app'
+        }),
+        angular2_1.View({
+            directives: [angular2_1.CORE_DIRECTIVES, attemptsRemaining_1.AttemptsRemaining, guessList_1.GuessList],
+            template: "<div>\n                    <h1>ROBOCO INDUSTRIES (TM) TERMILINK PROTOCOL</h1>\n                    <h4>!!! WARNING: LOCKOUT IMMINENT !!!</h4>\n                    <attempts-remaining></attempts-remaining>\n                    <div>\n                        <hash-codes></hash-codes>\n                        <selectable-text></selectable-text>\n                        <hash-codes></hash-codes>\n                        <selectable-text></selectable-text>\n                        <guess-list></guess-list>\n                        <current-selection></current-selection>\n                    </div>\n                    <power-button></power-button>\n                </div>"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [wordService_1.WordService])
     ], AppComponent);
     return AppComponent;
 })();
-angular2_1.bootstrap(AppComponent); /*  tells Angular to start the application with this component at the application root. We'd be correct to guess that someday our application will consist of more components arising in tree-like fashion from this root. */
+angular2_1.bootstrap(AppComponent, [wordService_1.WordService, guessService_1.GuessService]);
 //# sourceMappingURL=app.js.map
