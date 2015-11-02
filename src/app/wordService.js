@@ -3,7 +3,13 @@
  */
 var WordService = (function () {
     function WordService() {
-        this.words = ["WordServiceWord", "WordServiceWord", "WordServiceWord", "WordServiceWord", "WordServiceWord"];
+        this.words = [
+            "WORD1",
+            "WORD2",
+            "WORD3",
+            "WORD4",
+            "WORD5"
+        ];
     }
     return WordService;
 })();

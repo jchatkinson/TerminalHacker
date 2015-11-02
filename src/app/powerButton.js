@@ -11,22 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var guessService_1 = require("./guessService");
-var GuessList = (function () {
-    function GuessList(guessService) {
-        this.guessService = guessService;
+var PowerButton = (function () {
+    function PowerButton() {
     }
-    GuessList = __decorate([
+    PowerButton.prototype.onClick = function (event) {
+        console.log("Power button clicked", event);
+    };
+    PowerButton = __decorate([
         angular2_1.Component({
-            selector: 'guess-list'
+            selector: 'power-button'
         }),
         angular2_1.View({
-            directives: [angular2_1.NgFor],
-            template: "\n        <div>\n            <p>PREVIOUS ATTEMPTS:</p>\n            <div *ng-for=\"#guess of guessService.guesses\">\n                <div> >{{guess.word}}</div>\n                <div> >>>ACCESS {{guess.access}}.</div>\n                <div> >>>{{guess.matches}}/{{guess.word.length}} CORRECT.</div>\n            </div>\n        </div> "
+            template: "<div>\n        <button (click)=\"onClick($event)\">Power Off</button>\n    </div>"
         }), 
-        __metadata('design:paramtypes', [guessService_1.GuessService])
-    ], GuessList);
-    return GuessList;
+        __metadata('design:paramtypes', [])
+    ], PowerButton);
+    return PowerButton;
 })();
-exports.GuessList = GuessList;
-//# sourceMappingURL=guessList.js.map
+exports.PowerButton = PowerButton;
+//# sourceMappingURL=powerButton.js.map

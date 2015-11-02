@@ -3,5 +3,11 @@
  */
 
 export class WordService {
-    words:string[] = ["WordServiceWord","WordServiceWord","WordServiceWord","WordServiceWord","WordServiceWord"];
+    words:string[] = [
+        "WORD1",
+        "WORD2",
+        "WORD3",
+        "WORD4",
+        "WORD5"
+    ];
 }
