@@ -16,6 +16,7 @@
     "./src/app/hashCodes.ts",
     "./src/app/hashService.ts",
     "./src/app/powerButton.ts",
-    "./src/app/wordService.ts"
+    "./src/app/wordService.ts",
+    "./src/app/scrambledText.ts"
   ]
 }

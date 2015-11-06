@@ -5,16 +5,14 @@
  */
 var HashService = (function () {
     function HashService() {
-        this.hash = [
-            "0xF495",
-            "0xFACC",
-            "0xFACC",
-            "0xFACC",
-            "0xFACC",
-            "0xFACC"
-        ];
+        this.hash = this.getHashes(17);
     }
-    HashService.prototype.getHashes = function () {
+    HashService.prototype.getHashes = function (rows) {
+        this.hash = [];
+        for (var ii = 0; ii < rows; ii++) {
+            var randHash = '0x' + Array(4 + 1).join((Math.random().toString(36) + '00000000000000000').slice(2, 18)).slice(0, 4).toUpperCase();
+            this.hash.push(randHash);
+        }
         return this.hash;
     };
     return HashService;

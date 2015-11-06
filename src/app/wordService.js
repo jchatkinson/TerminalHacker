@@ -3,14 +3,12 @@
  */
 var WordService = (function () {
     function WordService() {
-        this.words = [
-            "WORD1",
-            "WORD2",
-            "WORD3",
-            "WORD4",
-            "WORD5"
-        ];
+        this.words = ["WORD1", "WORD2", "WORD3", "WORD4", "WORD5", "WORD6", "WORD7", "WORD8"];
+        this.currentWord = "";
     }
+    WordService.prototype.onMouseOver = function (event, value) {
+        console.log('Mouse over', event, value);
+    };
     return WordService;
 })();
 exports.WordService = WordService;

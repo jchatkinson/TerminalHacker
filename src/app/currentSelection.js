@@ -1,4 +1,4 @@
-/* Created by Jeremy on 11/1/2015. */
+/* Created by Jeremy on 11/2/2015. */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -11,23 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var PowerButton = (function () {
-    function PowerButton() {
+var CurrentSelection = (function () {
+    function CurrentSelection() {
+        this.word = "";
     }
-    PowerButton.prototype.onClick = function (event) {
-        console.log("Power button clicked", event);
-        window.history.back();
-    };
-    PowerButton = __decorate([
+    CurrentSelection = __decorate([
         angular2_1.Component({
-            selector: 'power-button'
+            selector: 'current-selection'
         }),
         angular2_1.View({
-            template: "<a (click)=\"onClick($event)\">Log Off</a>"
+            template: "<div> >{{word}} </div>",
         }), 
         __metadata('design:paramtypes', [])
-    ], PowerButton);
-    return PowerButton;
+    ], CurrentSelection);
+    return CurrentSelection;
 })();
-exports.PowerButton = PowerButton;
-//# sourceMappingURL=powerButton.js.map
+exports.CurrentSelection = CurrentSelection;
+//# sourceMappingURL=currentSelection.js.map

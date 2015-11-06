@@ -4,23 +4,22 @@ import {Component, View,NgFor} from "angular2/angular2";
 import {GuessService} from "./guessService";
 
 @Component({
-    selector: 'guess-list'
+    selector: 'guess-list',
 })
 @View({
     directives: [NgFor],
-    template: `
-        <div>
-            <p>PREVIOUS ATTEMPTS:</p>
-            <div *ng-for="#guess of guessService.guesses">
-                <div> >{{guess.word}}</div>
-                <div> >>>ACCESS {{guess.access}}.</div>
-                <div> >>>{{guess.matches}}/{{guess.word.length}} CORRECT.</div>
-            </div>
-        </div> `
+    template: `<p>PREVIOUS ATTEMPTS:</p>
+<div *ng-for="#guess of guessService.guesses" class="guess">
+    >{{guess.word}} <br>
+    >>>ACCESS {{guess.access}}. <br>
+    >>>{{guess.correctLetters}}/{{guess.word.length}} CORRECT.
+</div>`
+
 })
 
 export class GuessList {
-    constructor(
-        public guessService:GuessService
-    ){}
+
+    constructor(public guessService:GuessService){
+
+    }
 }

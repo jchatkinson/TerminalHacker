@@ -6,13 +6,13 @@ import {Component, View} from "angular2/angular2";
     selector: 'power-button'
 })
 @View({
-    template: `<div>
-        <button (click)="onClick($event)">Power Off</button>
-    </div>`
+    template: `<a (click)="onClick($event)">Log Off</a>`
 })
 
 export class PowerButton {
+
     onClick(event){
         console.log("Power button clicked",event);
+        window.history.back();
     }
 }

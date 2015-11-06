@@ -1,4 +1,4 @@
-/* Created by Jeremy on 11/1/2015. */
+/* Created by Jeremy on 11/5/2015. */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -11,23 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var PowerButton = (function () {
-    function PowerButton() {
+var ScrambledText = (function () {
+    function ScrambledText() {
     }
-    PowerButton.prototype.onClick = function (event) {
-        console.log("Power button clicked", event);
-        window.history.back();
-    };
-    PowerButton = __decorate([
+    ScrambledText = __decorate([
         angular2_1.Component({
-            selector: 'power-button'
+            selector: 'scrambled-text'
         }),
         angular2_1.View({
-            template: "<a (click)=\"onClick($event)\">Log Off</a>"
+            directives: [angular2_1.NgFor],
+            template: "<div>some text</div>"
         }), 
         __metadata('design:paramtypes', [])
-    ], PowerButton);
-    return PowerButton;
+    ], ScrambledText);
+    return ScrambledText;
 })();
-exports.PowerButton = PowerButton;
-//# sourceMappingURL=powerButton.js.map
+exports.ScrambledText = ScrambledText;
+//# sourceMappingURL=scrambledText.js.map

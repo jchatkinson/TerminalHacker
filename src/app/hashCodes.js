@@ -11,17 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
+var hashService_1 = require("./hashService");
 var HashCodes = (function () {
-    function HashCodes() {
+    function HashCodes(hashService) {
+        this.hashService = hashService;
+        //console.log(hashService);
     }
     HashCodes = __decorate([
         angular2_1.Component({
             selector: 'hash-codes'
         }),
         angular2_1.View({
-            template: "<div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n            <div>0xF123</div>\n        </div>"
+            directives: [angular2_1.NgFor],
+            template: "<div *ng-for=\"#hash of hashService.hash\">{{hash}}</div>"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [hashService_1.HashService])
     ], HashCodes);
     return HashCodes;
 })();

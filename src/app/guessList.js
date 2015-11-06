@@ -18,11 +18,11 @@ var GuessList = (function () {
     }
     GuessList = __decorate([
         angular2_1.Component({
-            selector: 'guess-list'
+            selector: 'guess-list',
         }),
         angular2_1.View({
             directives: [angular2_1.NgFor],
-            template: "\n        <div>\n            <p>PREVIOUS ATTEMPTS:</p>\n            <div *ng-for=\"#guess of guessService.guesses\">\n                <div> >{{guess.word}}</div>\n                <div> >>>ACCESS {{guess.access}}.</div>\n                <div> >>>{{guess.matches}}/{{guess.word.length}} CORRECT.</div>\n            </div>\n        </div> "
+            template: "<p>PREVIOUS ATTEMPTS:</p>\n<div *ng-for=\"#guess of guessService.guesses\" class=\"guess\">\n    >{{guess.word}} <br>\n    >>>ACCESS {{guess.access}}. <br>\n    >>>{{guess.correctLetters}}/{{guess.word.length}} CORRECT.\n</div>"
         }), 
         __metadata('design:paramtypes', [guessService_1.GuessService])
     ], GuessList);

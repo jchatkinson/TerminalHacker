@@ -13,27 +13,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var wordService_1 = require("./wordService");
 var guessService_1 = require("./guessService");
+var hashService_1 = require("./hashService");
 var attemptsRemaining_1 = require("./attemptsRemaining");
 var guessList_1 = require("./guessList");
 var powerButton_1 = require("./powerButton");
 var hashCodes_1 = require("./hashCodes");
-var AppComponent = (function () {
-    function AppComponent(wordService) {
+var currentSelection_1 = require("./currentSelection");
+var scrambledText_1 = require("./scrambledText");
+var Terminal = (function () {
+    function Terminal(wordService, guessService) {
         this.wordService = wordService;
+        this.guessService = guessService;
+        console.log("app started");
         console.log(wordService);
+        console.log(guessService);
     }
-    AppComponent = __decorate([
+    Terminal = __decorate([
         angular2_1.Component({
-            selector: 'my-app'
+            selector: 'terminal'
         }),
         angular2_1.View({
-            directives: [angular2_1.CORE_DIRECTIVES, attemptsRemaining_1.AttemptsRemaining, guessList_1.GuessList, powerButton_1.PowerButton, hashCodes_1.HashCodes],
-            template: "<div class=\"terminal\">\n                    <h1>ROBOCO INDUSTRIES (TM) TERMILINK PROTOCOL</h1>\n                    <h4>!!! WARNING: LOCKOUT IMMINENT !!!</h4>\n                    <attempts-remaining></attempts-remaining>\n                    <div class=\"hack\">\n                        <hash-codes></hash-codes>\n                        <selectable-text></selectable-text>\n                        <hash-codes></hash-codes>\n                        <selectable-text></selectable-text>\n                        <guess-list></guess-list>\n                        <current-selection></current-selection>\n                    </div>\n                    <power-button></power-button>\n                </div>",
-            styles: ["\n        .terminal {\n            display: flex;\n            flex-direction: column;\n            justify-content: space-around;\n            align-items: flex-start;\n        }\n        .terminal .hack {\n            width: 100%;\n            flex: 1 1 auto;\n            display: flex;\n            flex-direction: row;\n            justify-content: space-around;\n            align-items: flex-start;\n        }\n    "]
+            directives: [angular2_1.CORE_DIRECTIVES, attemptsRemaining_1.AttemptsRemaining, guessList_1.GuessList, powerButton_1.PowerButton, hashCodes_1.HashCodes, currentSelection_1.CurrentSelection, scrambledText_1.ScrambledText],
+            templateUrl: 'templates/terminal.html'
         }), 
-        __metadata('design:paramtypes', [wordService_1.WordService])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [wordService_1.WordService, guessService_1.GuessService])
+    ], Terminal);
+    return Terminal;
 })();
-angular2_1.bootstrap(AppComponent, [wordService_1.WordService, guessService_1.GuessService]);
+angular2_1.bootstrap(Terminal, [wordService_1.WordService, guessService_1.GuessService, hashService_1.HashService]);
 //# sourceMappingURL=app.js.map

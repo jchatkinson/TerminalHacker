@@ -2,14 +2,13 @@
  * Created by Jeremy on 11/1/2015.
  */
 var GuessModel = (function () {
-    function GuessModel(word, matches, access) {
+    function GuessModel(word, correctLetters, access) {
         if (word === void 0) { word = ""; }
-        if (matches === void 0) { matches = 0; }
-        if (access === void 0) { access = ""; }
+        if (correctLetters === void 0) { correctLetters = 0; }
+        if (access === void 0) { access = "DENIED"; }
         this.word = word;
-        this.matches = matches;
+        this.correctLetters = correctLetters;
         this.access = access;
-        this.status = "started";
     }
     return GuessModel;
 })();
@@ -24,6 +23,9 @@ var GuessService = (function () {
     }
     GuessService.prototype.addGuess = function (value) {
         this.guesses.push(value);
+    };
+    GuessService.prototype.resetGuesses = function () {
+        this.guesses = [];
     };
     return GuessService;
 })();

@@ -1,27 +1,21 @@
 /* Created by Jeremy on 11/1/2015. */
 
-import {Component, View} from "angular2/angular2";
+import {Component, View, NgFor} from "angular2/angular2";
+import {HashService} from "./hashService";
 
 @Component({
     selector: 'hash-codes'
 })
 @View({
+    directives: [NgFor],
     template:
-        `<div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-            <div>0xF123</div>
-        </div>`
+        `<div *ng-for="#hash of hashService.hash">{{hash}}</div>`
 })
 
-export class HashCodes {}
+export class HashCodes {
+    constructor(
+        public hashService:HashService
+    ){
+        //console.log(hashService);
+    }
+}

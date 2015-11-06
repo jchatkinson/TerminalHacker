@@ -1,25 +1,59 @@
 html {
+    height: 100%;
     background: url(images/frame_corner_top_left.png) no-repeat top left, url(images/frame_corner_bottom_left.png) no-repeat bottom left, url(images/frame_corner_bottom_right.png) no-repeat bottom right, url(images/frame_corner_top_right.png) no-repeat top right, url(images/frame_top.png) repeat-x top, url(images/frame_left.png) repeat-y left, url(images/frame_right.png) repeat-y right, url(images/frame_bottom.png) repeat-x bottom, url(images/terminal_background.png) no-repeat center center fixed;
-
-    background-size: auto, auto, auto, auto, auto, auto, auto, auto,cover;
+    background-size: auto, auto, auto, auto, auto, auto, auto, auto, cover;
 }
 
 body {
+    height: calc(100% - 200px);
     margin: 100px 150px;
     font-family: VT323,monospace;
     color: #30da77;
     font-size: 16px;
 }
 h1, h2, h3, h4, h5, h6 {
-    margin: 8px 0px 16px 0px;
+    margin: 8px 0 16px 0;
 }
 
 a {
     color: #30da77;
 }
-
+current-selection {
+    display: block;
+    margin: 8px 0 8px 0;
+}
 .screen {
     overflow: hidden;
     width: 100%;
     height: 100%;
+}
+terminal {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+terminal .interface {
+    width: 100%;
+    min-height: 80%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+terminal power-button {
+    align-self: flex-end;
+    font-family: VT323,monospace;
+    color: #30da77;
+    font-size: 20px;
+    cursor: pointer;
+}
+terminal power-button a:hover {
+    background-color: #30da77;
+    color: #031007;
+}
+terminal attempts-remaining {
+    margin: 16px;
 }
